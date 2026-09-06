@@ -106,7 +106,8 @@ class WPush(PushChannel):
                 proxies=proxies,
                 allow_redirects=False,
             )
-            response.raise_for_status()
+            if not 200 <= response.status_code < 300:
+                return False, f"WPUSH 请求失败: HTTP {response.status_code}"
             result = response.json()
 
             if result.get("code") == 0:

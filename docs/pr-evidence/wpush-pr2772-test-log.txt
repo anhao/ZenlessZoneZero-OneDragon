@@ -1,8 +1,0 @@
-OneDragon WPUSH channel test — PR #2772
-========================================
-WPush.push() => ok=True, msg=WPUSH 推送成功
-Raw API HTTP 200, code=0, message=success
-Endpoint: POST https://api.wpush.cn/api/v1/send
-Payload fields: apikey, title, content, channel=wechat
-allow_redirects=False, proxies=self.get_proxy(proxy_url)
-Result: SUCCESS

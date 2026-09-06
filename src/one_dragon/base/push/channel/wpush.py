@@ -11,7 +11,8 @@ from one_dragon.base.push.push_channel_config import (
 class WPush(PushChannel):
     """WPUSH 多渠道消息推送。文档：https://wpush.cn/docs"""
 
-    def __init__(self):
+    def __init__(self) -> None:
+        """初始化 WPUSH 推送渠道与配置项。"""
         config_schema = [
             PushChannelConfigField(
                 var_suffix="APIKEY",

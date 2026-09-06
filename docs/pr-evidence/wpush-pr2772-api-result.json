@@ -1,0 +1,14 @@
+{
+  "http_status": 200,
+  "code": 0,
+  "message": "success",
+  "data_type": "str",
+  "channel_class_ok": true,
+  "channel_class_msg": "WPUSH 推送成功",
+  "response_keys": [
+    "code",
+    "data",
+    "message",
+    "success"
+  ]
+}

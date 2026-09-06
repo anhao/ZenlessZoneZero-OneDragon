@@ -97,16 +97,21 @@ class WPush(PushChannel):
                 data["topic_code"] = topic_code
 
             headers = {"Content-Type": "application/json"}
+            proxies = self.get_proxy(proxy_url)
             response = requests.post(
                 url="https://api.wpush.cn/api/v1/send",
                 json=data,
                 headers=headers,
                 timeout=15,
-            ).json()
+                proxies=proxies,
+                allow_redirects=False,
+            )
+            response.raise_for_status()
+            result = response.json()
 
-            if response.get("code") == 0:
+            if result.get("code") == 0:
                 return True, "WPUSH 推送成功"
-            return False, f"WPUSH 推送失败: {response.get('message', response)}"
+            return False, f"WPUSH 推送失败: {result.get('message', result)}"
 
         except Exception as e:
             return False, f"WPUSH 推送异常: {str(e)}"
